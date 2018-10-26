@@ -1,8 +1,10 @@
 """
-Simple class to download a file avoiding wget dependency.
+Simple classes to download and extract CIFAR-10 data avoiding wget dependencies.
 """
 import sys
+import tarfile
 import urllib.request
+from pathlib import Path
 
 
 class Downloader:
@@ -12,7 +14,7 @@ class Downloader:
     def __init__(self):
         pass
 
-    def download_file(self, url: str, filename: str):
+    def download_file(self, url: str, filename: Path):
         """
         Download a file from remote URL.
 
@@ -29,3 +31,14 @@ class Downloader:
         msg = f'\r{percent}% ' + '[' + '.' * percent + ' ' * (100 - percent) + ']'
         sys.stdout.write(msg)
         sys.stdout.flush()
+
+
+class Extractor:
+    """
+    Simple class to extract CIFAR-10 archive
+    """
+    def __init__(self):
+        self.mode = 'r:gz'  # tar.gz
+
+    def extract(self, archive_path, extract_path):
+        tarfile.open(name=archive_path, mode=self.mode).extractall(extract_path)

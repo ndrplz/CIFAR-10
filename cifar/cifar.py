@@ -3,7 +3,8 @@ Class that encapsulates CIFAR-10 dataset.
 """
 from pathlib import Path
 
-from cifar.downloader import Downloader
+from cifar.utils import Downloader
+from cifar.utils import Extractor
 
 
 class CIFAR10:
@@ -12,15 +13,25 @@ class CIFAR10:
 
     def __init__(self, dataset_root: str):
         self.dataset_root = Path(dataset_root)
-        self.tgz_filename = 'cifar-10-python.tar.gz'
+        self.tgz_filename = Path('cifar-10-python.tar.gz')
 
-        if not self.dataset_root.exists():
-            self._download_cifar10()
+        if not self.dataset_root.is_dir():
+            self._download_and_extract_cifar10()
 
-    def _download_cifar10(self):
+    def _download_and_extract_cifar10(self):
         """
         Download the CIFAR10 `tar.gz` file from Toronto university
         """
-        print(f'Downloading CIFAR-10 from {self.cifar_url}...', flush=True)
-        Downloader().download_file(url=self.cifar_url, filename=self.tgz_filename)
-        print('\nDone.')
+        # Possibly download the dataset
+        if not self.tgz_filename.is_file():
+            print(f'Downloading CIFAR-10 dataset from {self.cifar_url}...', flush=True)
+            Downloader().download_file(url=self.cifar_url, filename=self.tgz_filename)
+            print('\nDone.')
+
+        # Extract downloaded archive
+        print(f'Extracting {self.tgz_filename} to {self.dataset_root}...', flush=True)
+        Extractor().extract(self.tgz_filename, extract_path=self.dataset_root)
+        print('Done.')
+
+        # Remove the archive
+        self.tgz_filename.unlink()
