@@ -2,4 +2,4 @@
 Python wrapper to CIFAR-10 dataset.
 
 ## Requirements
-* Python 3.6 or higher
+* Python >= 3.6
