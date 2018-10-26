@@ -15,6 +15,7 @@ class CIFAR10:
         self.dataset_root = Path(dataset_root)
         self.tgz_filename = Path('cifar-10-python.tar.gz')
 
+        # Possibly download and extract the dataset
         if not self.dataset_root.is_dir():
             self._download_and_extract_cifar10()
 
@@ -33,5 +34,9 @@ class CIFAR10:
         Extractor().extract(self.tgz_filename, extract_path=self.dataset_root)
         print('Done.')
 
-        # Remove the archive
+        # Move all files into the chosen dataset root (up one directory)
+        [f.rename(f.absolute().parents[1] / f.name) for f in self.dataset_root.glob('*/*')]
+        Path(self.dataset_root / 'cifar-10-batches-py').rmdir()  # remove inner directory
+
+        # Finally remove the archive
         self.tgz_filename.unlink()
