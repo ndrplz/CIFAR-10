@@ -1,3 +1,9 @@
+# Pycharm stuff
+.idea/
+
+# Ignore CIFAR10 archive
+*.tar.gz
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
