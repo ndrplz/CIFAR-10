@@ -5,9 +5,10 @@ The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes,
  with 6000 images per class. There are 50000 training images and 10000 test images.
 """
 import pickle
-import numpy as np
 from pathlib import Path
+from typing import List
 
+import numpy as np
 from cifar.utils import Downloader
 from cifar.utils import Extractor
 
@@ -59,6 +60,24 @@ class CIFAR10:
 
         # Unpickle the only test batch
         self._unpickle_data_batch(self.dataset_root / 'test_batch', split='test')
+
+    @staticmethod
+    def to_ndarray(sample_list: List[CIFARSample], normalize: bool=False, flatten: bool=False):
+        """
+        Convert a list of CifarSample to ndarray for further processing (e.g. training a classifier)
+
+        :param sample_list: List of CIFARSample
+        :param normalize: If true, `x` is scaled and centered on zero.
+        :param flatten: If true `x` is unrolled in a vector.
+        :return x, y: Images and labels as ndarray.
+        """
+        x = np.asarray([s.image for s in sample_list])
+        if normalize:
+            x = x.astype(np.float32) / 255. - 0.5  # zero centering
+        if flatten:
+            x = x.reshape(-1, 32 * 32 * 3)
+        y = np.asarray([s.label for s in sample_list])
+        return x, y
 
     def _unpickle_data_batch(self, batch_file, split):
         # Read pickle file
