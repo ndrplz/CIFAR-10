@@ -1,5 +1,10 @@
 # CIFAR-10
-Python wrapper to CIFAR-10 dataset.
+
+**Python plug-and-play wrapper to CIFAR-10 dataset.**
+
+The [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images. 
+
+The dataset is divided into five training batches and one test batch, each with 10000 images. The test batch contains exactly 1000 randomly-selected images from each class. The training batches contain the remaining images in random order, but some training batches may contain more images from one class than another. Between them, the training batches contain exactly 5000 images from each class. 
 
 ## Usage
 As simple as:
@@ -10,6 +15,15 @@ from cifar import CIFAR10
 #  the first time it is automatically downloaded and extracted there.
 dataset = CIFAR10(dataset_root='./cifar10')
 ```
+and you're done.
+
+## Installation
+
+* *No installation required.* You can just clone / download / copypaste this repository.
+* I'm wondering if it might be useful to add it to PyPI...
+
+## Requirements
+* Python >= 3.6
 
 ## Hello World
 ```python
@@ -43,5 +57,4 @@ print(x_train.shape, y_train.shape)             # (50000, 3072)  (50000,)
 print(x_test.shape, y_test.shape)               # (10000, 3072)  (10000,)
 ```
 
-## Requirements
-* Python >= 3.6
+
