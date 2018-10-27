@@ -1,6 +1,6 @@
 # CIFAR-10
 
-<p align="center"><img src="docs/cifar_banner.png" width="800"></p>
+<p align="center"><img src="docs/cifar_banner.png" width="900"></p>
 
 ## Usage
 As simple as:
