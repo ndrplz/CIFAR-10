@@ -28,3 +28,5 @@ if __name__ == '__main__':
 
     print(x_train.shape)                            # (50000, 3072)
     print(x_test.shape)                             # (10000, 3072)
+    print(y_train.shape)                            # (50000,)
+    print(y_test.shape)                             # (10000,)
