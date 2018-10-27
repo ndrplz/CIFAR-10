@@ -17,12 +17,12 @@ and you're done.
 
 The [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. It's kind of famous in the computer vision community and it is often used as (toy) benchmark.
 
-Despite it's quite famous, I did not find any easy plug-and-play wrapper around it. Of course, there are wrappers to CIFAR-10 in most deep learning frameworks ([TensorFlow](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10), [PyTorch](https://pytorch.org/docs/stable/torchvision/datasets.html)) but you know I usually don't want to get into a whole deep learning framework just to play with 32x32 cat images. So here's why.
+Despite its fame, I did not find any easy plug-and-play wrapper around it. Of course, there are wrappers to CIFAR-10 in most deep learning frameworks ([TensorFlow](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10), [PyTorch](https://pytorch.org/docs/stable/torchvision/datasets.html)) but you know I usually don't want to get into a whole deep learning framework just to play with 32x32 cat images. So here's why. And yes, I also wanted to have some fun learning [`pathlib`](https://docs.python.org/3/library/pathlib.html).
 
 ## Installation
 
 * *No installation required.* You can just clone / download / copypaste this repository.
-* I'm wondering if it might be useful to add it to PyPI...
+* I'm wondering if adding it to PyPI might be useful...
 
 ## Requirements
 * Python >= 3.6
