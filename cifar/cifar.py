@@ -13,15 +13,31 @@ from cifar.utils import Extractor
 
 
 class CIFARSample:
+    """
+    One example from the CIFAR-10 dataset.
+    """
     def __init__(self, image, label, filename):
         self.image = image
         self.label = label
         self.filename = filename
 
+    @property
+    def label_hr(self):
+        # Human readable label
+        return CIFAR10.label_to_str[self.label]
+
+    def __str__(self):
+        return f'[{self.label_hr}] - {self.filename}'
+
 
 class CIFAR10:
     # URL to download the dataset from Toronto university
     cifar_url = 'https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz'
+
+    # Mappings from numeric to human readable labels (and the other way around)
+    label_to_str = {0: 'airplane', 1: 'automobile', 2: 'bird', 3: 'cat', 4: 'deer',
+                    5: 'dog', 6: 'frog', 7: 'horse', 8: 'ship', 9: 'truck'}
+    str_to_label = {v: k for (k, v) in label_to_str.items()}
 
     def __init__(self, dataset_root: str):
         self.dataset_root = Path(dataset_root)
