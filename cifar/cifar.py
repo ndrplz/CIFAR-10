@@ -74,7 +74,7 @@ class CIFAR10:
         # Each pickle batch file contains 10000 examples
         for i in range(10000):
             idx = samples_start_idx + i
-            sample = CIFARSample(image=data[b'data'][i].reshape(32, 32, 3),
+            sample = CIFARSample(image=data[b'data'][i].reshape(3, 32, 32).transpose(1, 2, 0),
                                  label=data[b'labels'][i],
                                  filename=data[b'filenames'][i].decode())
             self.samples[split][idx] = sample
