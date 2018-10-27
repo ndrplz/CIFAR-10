@@ -1,12 +1,6 @@
 # CIFAR-10
 
-**Python plug-and-play wrapper to CIFAR-10 dataset.**
-
-## Why this wrapper?
-
-The [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. It's kind of famous in the computer vision community and it is often used as (toy) benchmark.
-
-Despite it's quite famous, I did not find any easy plug-and-play wrapper around it. Of course, there are wrappers to CIFAR-10 in most deep learning frameworks ([TensorFlow](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10), [PyTorch](https://pytorch.org/docs/stable/torchvision/datasets.html)) but you know I usually don't want to get into a whole deep learning framework just to play with 32x32 cat images. So here's why.
+<p align="center"><img src="docs/cifar_banner.png" width="800"></p>
 
 ## Usage
 As simple as:
@@ -18,6 +12,12 @@ from cifar import CIFAR10
 dataset = CIFAR10(dataset_root='./cifar10')
 ```
 and you're done.
+
+## Why this wrapper?
+
+The [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. It's kind of famous in the computer vision community and it is often used as (toy) benchmark.
+
+Despite it's quite famous, I did not find any easy plug-and-play wrapper around it. Of course, there are wrappers to CIFAR-10 in most deep learning frameworks ([TensorFlow](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10), [PyTorch](https://pytorch.org/docs/stable/torchvision/datasets.html)) but you know I usually don't want to get into a whole deep learning framework just to play with 32x32 cat images. So here's why.
 
 ## Installation
 
