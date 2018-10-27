@@ -59,4 +59,5 @@ print(x_train.shape, y_train.shape)             # (50000, 3072)  (50000,)
 print(x_test.shape, y_test.shape)               # (10000, 3072)  (10000,)
 ```
 
-
+## Issues
+Please feel free do open an issue if something doesn't look quite right!
