@@ -19,6 +19,11 @@ The [CIFAR-10 dataset](https://www.cs.toronto.edu/~kriz/cifar.html) consists of 
 
 Despite its fame, I did not find any easy plug-and-play wrapper around it. Of course, there are wrappers to CIFAR-10 in most deep learning frameworks ([TensorFlow](https://github.com/tensorflow/models/tree/master/tutorials/image/cifar10), [PyTorch](https://pytorch.org/docs/stable/torchvision/datasets.html)) but you know I usually don't want to get into a whole deep learning framework just to play with 32x32 cat images. So here's why. And yes, I also wanted to have some fun learning [`pathlib`](https://docs.python.org/3/library/pathlib.html).
 
+#### [video] How the dataset looks like, by the way?
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=pRiRrGk0_DY"><img src="http://img.youtube.com/vi/pRiRrGk0_DY/0.jpg" alt="video_results" width="50%" height="40%"></a>
+</p>
+
 ## Installation
 
 * *No installation required.* You can just clone / download / copypaste this repository.
